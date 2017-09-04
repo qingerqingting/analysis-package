@@ -1,0 +1,3160 @@
+
+**************************************************
+               BOSS version: 6.6.4
+************** BESIII Collaboration **************
+
+JobOptionsSvc        INFO 
+//GP:================================================================================
+//GP: include "/besfs/users/lvxd/workarea/mc/mc5/ana/ana_07.txt"              (0,0)
+//GP: include "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Event/RootIO/RootIO-00-01-31/share/jobOptions_ReadRec.txt" (1,10)
+ApplicationMgr.DLLs +=  [ "RecMakerAlg" ] ;                             //GP: (1,1)
+ApplicationMgr.TopAlg +=  [ "RecMakerAlg" ] ;                           //GP: (1,1)
+ApplicationMgr.DLLs +=  [ "RootCnvSvc" ] ;                              //GP: (1,1)
+ApplicationMgr.ExtSvc +=  [ "EvtPersistencySvc/EventPersistencySvc" ] ; //GP: (1,1)
+ApplicationMgr.ExtSvc +=  [ "RootEvtSelector/EventSelector" , "RootCnvSvc/EventCnvSvc" ] ;//GP: (1,1)
+EventPersistencySvc.CnvServices +=  [ "EventCnvSvc" ] ;                 //GP: (1,1)
+//GP: end  "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Event/RootIO/RootIO-00-01-31/share/jobOptions_ReadRec.txt" (11,1)
+//GP: include "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/MagneticField/MagneticField-00-01-36/share/MagneticField.txt" (2,10)
+ApplicationMgr.DLLs +=  [ "MagneticField" ] ;                           //GP: (1,1)
+ApplicationMgr.ExtSvc +=  [ "MagneticFieldSvc" ] ;                      //GP: (1,1)
+MagneticFieldSvc.IfRealField = 1;                                       //GP: (1,1)
+MagneticFieldSvc.OutLevel = 1;                                          //GP: (1,1)
+MagneticFieldSvc.GridDistance = 5;                                      //GP: (1,1)
+MagneticFieldSvc.RunMode = 3;                                           //GP: (1,1)
+MagneticFieldSvc.Cur_SCQ1_55 = 349.4;                                   //GP: (1,1)
+MagneticFieldSvc.Cur_SCQ1_89 = 426.2;                                   //GP: (1,1)
+MagneticFieldSvc.Cur_SCQ2_10 = 474.2;                                   //GP: (1,1)
+MagneticFieldSvc.UseDBFlag = 1;                                         //GP: (1,1)
+MagneticFieldSvc.TurnOffField = 0;                                      //GP: (1,1)
+//GP: end  "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/MagneticField/MagneticField-00-01-36/share/MagneticField.txt" (30,1)
+//GP: include "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Analysis/PhotonCor/AbsCor/AbsCor-00-00-28/share/jobOptions_AbsCor.txt" (3,10)
+ApplicationMgr.DLLs +=  [ "EmcRecGeoSvc" ] ;                            //GP: (1,1)
+ApplicationMgr.ExtSvc +=  [ "EmcRecGeoSvc" ] ;                          //GP: (1,1)
+ApplicationMgr.DLLs +=  [ "AbsCor" ] ;                                  //GP: (1,1)
+ApplicationMgr.TopAlg +=  [ "AbsCor" ] ;                                //GP: (1,1)
+AbsCor.NTupleOut = 0;                                                   //GP: (1,1)
+AbsCor.UseTof = 1;                                                      //GP: (1,1)
+AbsCor.DoDataCor = 1;                                                   //GP: (1,1)
+//GP: end  "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Analysis/PhotonCor/AbsCor/AbsCor-00-00-28/share/jobOptions_AbsCor.txt" (13,1)
+//GP: include "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Analysis/VertexFit/VertexFit-00-02-68/share/jobOptions_VertexDbSvc.txt" (4,10)
+//GP: include "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Control/OfflineEventLoopMgr/OfflineEventLoopMgr-00-00-13/share/OfflineEventLoopMgr_Option.txt" (1,10)
+ApplicationMgr.DLLs +=  [ "OfflineEventLoopMgr" ] ;                     //GP: (1,1)
+ApplicationMgr.EventLoop = "OfflineEventLoopMgr";                       //GP: (1,1)
+//GP: end  "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Control/OfflineEventLoopMgr/OfflineEventLoopMgr-00-00-13/share/OfflineEventLoopMgr_Option.txt" (3,1)
+//GP: include "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Database/DatabaseSvc/DatabaseSvc-00-00-19/share/DatabaseConfig.txt" (2,10)
+ApplicationMgr.DLLs +=  [ "DatabaseSvc" ] ;                             //GP: (1,1)
+ApplicationMgr.ExtSvc +=  [ "DatabaseSvc" ] ;                           //GP: (1,1)
+DatabaseSvc.DbType = "mysql";                                           //GP: (1,1)
+DatabaseSvc.Host = "bes3db2.ihep.ac.cn";                                //GP: (1,1)
+DatabaseSvc.User = "guest";                                             //GP: (1,1)
+DatabaseSvc.Passwd = "guestpass";                                       //GP: (1,1)
+DatabaseSvc.SqliteDbPath = "$BESCALDATA/database";                      //GP: (1,1)
+DatabaseSvc.ReuseConnection = 1;                                        //GP: (1,1)
+//GP: end  "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Database/DatabaseSvc/DatabaseSvc-00-00-19/share/DatabaseConfig.txt" (10,1)
+ApplicationMgr.DLLs +=  [ "VertexFit" ] ;                               //GP: (2,10)
+ApplicationMgr.ExtSvc +=  [ "VertexDbSvc" ] ;                           //GP: (2,10)
+VertexDbSvc.BossRelease = "6.6.4";                                      //GP: (2,10)
+//GP: end  "/afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/Analysis/VertexFit/VertexFit-00-02-68/share/jobOptions_VertexDbSvc.txt" (9,1)
+//GP: include "/besfs/users/lvxd/workarea/lvxdAlg/lvxdAlg-00-00-01/share/jobOptions_lvxd.txt" (5,10)
+ApplicationMgr.DLLs +=  [ "lvxdAlg" ] ;                                 //GP: (1,1)
+ApplicationMgr.TopAlg +=  [ "lvxd" ] ;                                  //GP: (1,1)
+//GP: end  "/besfs/users/lvxd/workarea/lvxdAlg/lvxdAlg-00-00-01/share/jobOptions_lvxd.txt" (3,1)
+EventCnvSvc.digiRootInputFile =  [ "/besfs/users/lvxd/workarea/mc/mc5/rec/rec_07.dst" ] ;//GP: (5,10)
+MessageSvc.OutputLevel = 5;                                             //GP: (5,10)
+ApplicationMgr.EvtMax = -1;                                             //GP: (5,10)
+ApplicationMgr.HistogramPersistency = "ROOT";                           //GP: (5,10)
+NTupleSvc.Output =  [ "FILE1 DATAFILE='ana_07.root' OPT='NEW' TYP='ROOT'" ] ;//GP: (5,10)
+//GP: end  "/besfs/users/lvxd/workarea/mc/mc5/ana/ana_07.txt"                 (26,1)
+//GP:================================================================================
+
+JobOptionsSvc        INFO Job options successfully read in from /besfs/users/lvxd/workarea/mc/mc5/ana/ana_07.txt
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr $Revision: 1.77 $
+                                          running on bws0267.ihep.ac.cn on Thu Apr  7 13:24:55 2016
+====================================================================================================================================
+
+[1mRooFit v3.00a -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2009 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+ApplicationMgr       INFO Successfully loaded modules : RecMakerAlg, RootCnvSvc, MagneticField, EmcRecGeoSvc, AbsCor, OfflineEventLoopMgr, DatabaseSvc, VertexFit, lvxdAlg
+*** Read field map: /afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/MagneticField/MagneticField-00-01-36/dat/barIronpar.txt
+*** Read field map: /afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/MagneticField/MagneticField-00-01-36/dat/barAirpar.txt
+*** Read field map: /afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/MagneticField/MagneticField-00-01-36/dat/endIronpar.txt
+*** Read field map: /afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/MagneticField/MagneticField-00-01-36/dat/endAirpar.txt
+Construct Emc from GdmlFile /afs/ihep.ac.cn/bes3/offline/Boss/6.6.4/DetectorDescription/GdmlManagement/GdmlManagement-00-00-31/dat/Emc.gdml
+SAXProcessor type ROOT
+SAXProcessor requires type 2
+Top Volume not found 
+Find logicalEMC!
+gGeoManager success!
+DatabaseSvc: Connected to MySQL database
+mccor = 0
+ --------------- HepPDT Version 2.05.04 --------------- 
+found 259 particles
+ApplicationMgr       INFO Application Manager Initialized successfully
+ApplicationMgr       INFO Application Manager Started successfully
+
+**************************************************
+Print JobInfo for data file: /besfs/users/lvxd/workarea/mc/mc5/rec/rec_07.dst
+          BOSS version: 6.6.4
+**************************************************
+
+
+**************************************************
+          Decay Options: 
+Decay J/psi
+1.0 Y(2175) eta PHSP;
+Enddecay
+Decay Y(2175)
+1.0 phi eta' PHSP;
+Enddecay
+Decay phi
+1.0 K+ K- VSS;
+Enddecay
+Decay eta'
+1.0  rho0  gamma        SVP_HELAMP  1.0 0.0 1.0 0.0;
+Enddecay
+Decay rho0
+1.0 pi+ pi- VSS;
+Enddecay
+Decay eta
+1.0 gamma gamma PHSP;
+Enddecay
+End
+
+**************************************************
+
+
+**************************************************
+          JobOptions for this data file: 
+
+#include "$OFFLINEEVENTLOOPMGRROOT/share/OfflineEventLoopMgr_Option.txt"
+#include "$KKMCROOT/share/jobOptions_KKMC.txt"
+KKMC.CMSEnergy = 3.097;
+KKMC.BeamEnergySpread=0.0008;
+KKMC.NumberOfEventPrinted=1;
+KKMC.GenerateJPsi=true;
+#include "$BESEVTGENROOT/share/BesEvtGen.txt"
+EvtDecay.userDecayTableName = "G3K2Pi2.dec";
+EvtDecay.PdtTableDir = "/besfs/users/lvxd/workarea/mc/mc5/sim/mypdt.table";
+BesRndmGenSvc.RndmSeed = 07;
+#include "$BESSIMROOT/share/G4Svc_BesSim.txt"
+#include "$CALIBSVCROOT/share/calibConfig_sim.txt"
+RealizationSvc.RunIdList = {-9947,0,-10878};
+#include "$ROOTIOROOT/share/jobOptions_Digi2Root.txt"
+RootCnvSvc.digiRootOutputFile = "sim_07.rtraw";
+MessageSvc.OutputLevel  = 5;
+ApplicationMgr.EvtMax = 1000;
+
+          end of the jobOptions file 
+**************************************************
+
+#include "$ROOTIOROOT/share/jobOptions_ReadRoot.txt"
+#include "$OFFLINEEVENTLOOPMGRROOT/share/OfflineEventLoopMgr_Option.txt"
+#include "$BESEVENTMIXERROOT/share/jobOptions_EventMixer_rec.txt"
+#include "$CALIBSVCROOT/share/job-CalibData.txt"
+#include "$MAGNETICFIELDROOT/share/MagneticField.txt"
+#include "$ESTIMEALGROOT/share/job_EsTimeAlg.txt"
+#include "$MDCXRECOROOT/share/jobOptions_MdcPatTsfRec.txt"
+#include "$KALFITALGROOT/share/job_kalfit_numf_data.txt"
+#include "$MDCDEDXALGROOT/share/job_dedx_all.txt"
+#include "$TRKEXTALGROOT/share/TrkExtAlgOption.txt"
+#include "$TOFRECROOT/share/jobOptions_TofRec.txt"
+#include "$TOFENERGYRECROOT/share/TofEnergyRecOptions_MC.txt"
+#include "$EMCRECROOT/share/EmcRecOptions.txt"
+#include "$MUCRECALGROOT/share/jobOptions_MucRec.txt"
+#include "$EVENTASSEMBLYROOT/share/EventAssembly.txt"
+#include "$PRIMARYVERTEXALGROOT/share/jobOptions_kalman.txt"
+#include "$VEEVERTEXALGROOT/share/jobOptions_veeVertex.txt"
+#include "$HLTMAKERALGROOT/share/jobOptions_HltMakerAlg.txt"
+#include "$EVENTNAVIGATORROOT/share/EventNavigator.txt"
+#include "$ROOTIOROOT/share/jobOptions_Dst2Root.txt"
+#include "$CALIBSVCROOT/share/calibConfig_rec_mc.txt"
+BesRndmGenSvc.RndmSeed = 07;
+MessageSvc.OutputLevel = 5; 
+EventCnvSvc.digiRootInputFile = {"/besfs/users/lvxd/workarea/mc/mc5/sim/sim_07.rtraw"};
+EventCnvSvc.digiRootOutputFile ="./rec_07.dst";
+ApplicationMgr.EvtMax = -1;
+
+          end of the jobOptions file 
+**************************************************
+
+Using the SftVer and ParVer (6.6.3, 1) for run 9947. 
+Processing 0th event...
+Event Level Cut flow: total events: 1 charged track selection: 0 | photon selection: 0  PID: 0 | vertex fit 0 4c fit 0
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 2 charged track selection: 1 | photon selection: 1  PID: 1 | vertex fit 1 4c fit 1
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 3 charged track selection: 2 | photon selection: 2  PID: 2 | vertex fit 2 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 4 charged track selection: 2 | photon selection: 2  PID: 2 | vertex fit 2 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 6 charged track selection: 2 | photon selection: 2  PID: 2 | vertex fit 2 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 7 charged track selection: 2 | photon selection: 2  PID: 2 | vertex fit 2 4c fit 2
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 11 charged track selection: 4 | photon selection: 3  PID: 3 | vertex fit 3 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 15 charged track selection: 5 | photon selection: 3  PID: 3 | vertex fit 3 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 16 charged track selection: 6 | photon selection: 4  PID: 4 | vertex fit 4 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 18 charged track selection: 7 | photon selection: 5  PID: 5 | vertex fit 5 4c fit 2
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 22 charged track selection: 9 | photon selection: 7  PID: 6 | vertex fit 6 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 26 charged track selection: 10 | photon selection: 7  PID: 6 | vertex fit 6 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 30 charged track selection: 11 | photon selection: 7  PID: 6 | vertex fit 6 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 32 charged track selection: 11 | photon selection: 7  PID: 6 | vertex fit 6 4c fit 2
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 36 charged track selection: 13 | photon selection: 8  PID: 7 | vertex fit 7 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 40 charged track selection: 13 | photon selection: 8  PID: 7 | vertex fit 7 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 43 charged track selection: 16 | photon selection: 11  PID: 10 | vertex fit 10 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 45 charged track selection: 17 | photon selection: 12  PID: 10 | vertex fit 10 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 46 charged track selection: 17 | photon selection: 12  PID: 10 | vertex fit 10 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 49 charged track selection: 17 | photon selection: 12  PID: 10 | vertex fit 10 4c fit 2
+Processing 0th event...
+Event Level Cut flow: total events: 53 charged track selection: 17 | photon selection: 12  PID: 10 | vertex fit 10 4c fit 2
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 57 charged track selection: 18 | photon selection: 13  PID: 11 | vertex fit 11 4c fit 3
+Processing 0th event...
+Event Level Cut flow: total events: 58 charged track selection: 19 | photon selection: 14  PID: 11 | vertex fit 11 4c fit 3
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 62 charged track selection: 21 | photon selection: 16  PID: 13 | vertex fit 13 4c fit 4
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 65 charged track selection: 22 | photon selection: 17  PID: 14 | vertex fit 14 4c fit 4
+Processing 0th event...
+Event Level Cut flow: total events: 66 charged track selection: 22 | photon selection: 17  PID: 14 | vertex fit 14 4c fit 4
+Processing 0th event...
+Event Level Cut flow: total events: 67 charged track selection: 22 | photon selection: 17  PID: 14 | vertex fit 14 4c fit 4
+Processing 0th event...
+Event Level Cut flow: total events: 71 charged track selection: 23 | photon selection: 18  PID: 15 | vertex fit 15 4c fit 4
+Processing 0th event...
+Event Level Cut flow: total events: 75 charged track selection: 24 | photon selection: 19  PID: 15 | vertex fit 15 4c fit 4
+Processing 0th event...
+Event Level Cut flow: total events: 77 charged track selection: 24 | photon selection: 19  PID: 15 | vertex fit 15 4c fit 4
+Processing 0th event...
+Event Level Cut flow: total events: 78 charged track selection: 24 | photon selection: 19  PID: 15 | vertex fit 15 4c fit 4
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 82 charged track selection: 26 | photon selection: 20  PID: 16 | vertex fit 16 4c fit 5
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 85 charged track selection: 27 | photon selection: 21  PID: 17 | vertex fit 17 4c fit 6
+Processing 0th event...
+Event Level Cut flow: total events: 87 charged track selection: 28 | photon selection: 22  PID: 18 | vertex fit 18 4c fit 6
+Processing 0th event...
+Event Level Cut flow: total events: 90 charged track selection: 28 | photon selection: 22  PID: 18 | vertex fit 18 4c fit 6
+Processing 0th event...
+Event Level Cut flow: total events: 91 charged track selection: 29 | photon selection: 23  PID: 18 | vertex fit 18 4c fit 6
+Processing 0th event...
+Event Level Cut flow: total events: 93 charged track selection: 30 | photon selection: 23  PID: 18 | vertex fit 18 4c fit 6
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 97 charged track selection: 32 | photon selection: 24  PID: 19 | vertex fit 19 4c fit 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 101 charged track selection: 34 | photon selection: 26  PID: 21 | vertex fit 21 4c fit 9
+Processing 0th event...
+Event Level Cut flow: total events: 104 charged track selection: 35 | photon selection: 27  PID: 21 | vertex fit 21 4c fit 9
+Processing 0th event...
+Event Level Cut flow: total events: 105 charged track selection: 35 | photon selection: 27  PID: 21 | vertex fit 21 4c fit 9
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 106 charged track selection: 36 | photon selection: 28  PID: 22 | vertex fit 22 4c fit 10
+Processing 0th event...
+Event Level Cut flow: total events: 107 charged track selection: 36 | photon selection: 28  PID: 22 | vertex fit 22 4c fit 10
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 108 charged track selection: 37 | photon selection: 29  PID: 23 | vertex fit 23 4c fit 10
+Processing 0th event...
+Event Level Cut flow: total events: 110 charged track selection: 37 | photon selection: 29  PID: 23 | vertex fit 23 4c fit 10
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 114 charged track selection: 39 | photon selection: 31  PID: 25 | vertex fit 25 4c fit 11
+Processing 0th event...
+Event Level Cut flow: total events: 118 charged track selection: 40 | photon selection: 32  PID: 26 | vertex fit 26 4c fit 11
+Processing 0th event...
+Event Level Cut flow: total events: 119 charged track selection: 40 | photon selection: 32  PID: 26 | vertex fit 26 4c fit 11
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 123 charged track selection: 42 | photon selection: 33  PID: 27 | vertex fit 27 4c fit 11
+Processing 0th event...
+Event Level Cut flow: total events: 125 charged track selection: 42 | photon selection: 33  PID: 27 | vertex fit 27 4c fit 11
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 129 charged track selection: 43 | photon selection: 34  PID: 28 | vertex fit 28 4c fit 12
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 133 charged track selection: 45 | photon selection: 36  PID: 30 | vertex fit 30 4c fit 13
+Processing 0th event...
+Event Level Cut flow: total events: 137 charged track selection: 46 | photon selection: 37  PID: 31 | vertex fit 31 4c fit 13
+Processing 0th event...
+Event Level Cut flow: total events: 141 charged track selection: 48 | photon selection: 38  PID: 32 | vertex fit 32 4c fit 13
+Processing 0th event...
+Event Level Cut flow: total events: 144 charged track selection: 51 | photon selection: 39  PID: 33 | vertex fit 33 4c fit 13
+Processing 0th event...
+Event Level Cut flow: total events: 145 charged track selection: 52 | photon selection: 39  PID: 33 | vertex fit 33 4c fit 13
+Processing 0th event...
+Event Level Cut flow: total events: 146 charged track selection: 52 | photon selection: 39  PID: 33 | vertex fit 33 4c fit 13
+Processing 0th event...
+Event Level Cut flow: total events: 150 charged track selection: 54 | photon selection: 41  PID: 35 | vertex fit 35 4c fit 13
+Processing 0th event...
+Event Level Cut flow: total events: 153 charged track selection: 54 | photon selection: 41  PID: 35 | vertex fit 35 4c fit 13
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 154 charged track selection: 55 | photon selection: 42  PID: 36 | vertex fit 36 4c fit 14
+Processing 0th event...
+Event Level Cut flow: total events: 157 charged track selection: 56 | photon selection: 42  PID: 36 | vertex fit 36 4c fit 14
+Processing 0th event...
+Event Level Cut flow: total events: 160 charged track selection: 57 | photon selection: 43  PID: 37 | vertex fit 37 4c fit 14
+Processing 0th event...
+Event Level Cut flow: total events: 164 charged track selection: 57 | photon selection: 43  PID: 37 | vertex fit 37 4c fit 14
+Processing 0th event...
+Event Level Cut flow: total events: 166 charged track selection: 57 | photon selection: 43  PID: 37 | vertex fit 37 4c fit 14
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 169 charged track selection: 58 | photon selection: 44  PID: 38 | vertex fit 38 4c fit 15
+Processing 0th event...
+Event Level Cut flow: total events: 172 charged track selection: 59 | photon selection: 45  PID: 39 | vertex fit 39 4c fit 15
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 173 charged track selection: 60 | photon selection: 46  PID: 40 | vertex fit 40 4c fit 15
+Processing 0th event...
+Event Level Cut flow: total events: 179 charged track selection: 60 | photon selection: 46  PID: 40 | vertex fit 40 4c fit 15
+Processing 0th event...
+Event Level Cut flow: total events: 182 charged track selection: 60 | photon selection: 46  PID: 40 | vertex fit 40 4c fit 15
+Processing 0th event...
+Event Level Cut flow: total events: 185 charged track selection: 60 | photon selection: 46  PID: 40 | vertex fit 40 4c fit 15
+Processing 0th event...
+Event Level Cut flow: total events: 188 charged track selection: 61 | photon selection: 47  PID: 41 | vertex fit 41 4c fit 15
+Processing 0th event...
+Event Level Cut flow: total events: 189 charged track selection: 61 | photon selection: 47  PID: 41 | vertex fit 41 4c fit 15
+Processing 0th event...
+Event Level Cut flow: total events: 190 charged track selection: 62 | photon selection: 48  PID: 42 | vertex fit 42 4c fit 15
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 193 charged track selection: 64 | photon selection: 50  PID: 43 | vertex fit 43 4c fit 15
+Processing 0th event...
+Event Level Cut flow: total events: 196 charged track selection: 65 | photon selection: 51  PID: 44 | vertex fit 44 4c fit 15
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 199 charged track selection: 66 | photon selection: 52  PID: 45 | vertex fit 45 4c fit 16
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 201 charged track selection: 67 | photon selection: 53  PID: 46 | vertex fit 46 4c fit 16
+Processing 0th event...
+Event Level Cut flow: total events: 202 charged track selection: 67 | photon selection: 53  PID: 46 | vertex fit 46 4c fit 16
+Processing 0th event...
+Event Level Cut flow: total events: 204 charged track selection: 68 | photon selection: 54  PID: 47 | vertex fit 47 4c fit 16
+Processing 0th event...
+Event Level Cut flow: total events: 205 charged track selection: 69 | photon selection: 55  PID: 48 | vertex fit 48 4c fit 16
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 209 charged track selection: 70 | photon selection: 56  PID: 49 | vertex fit 49 4c fit 16
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 213 charged track selection: 73 | photon selection: 59  PID: 52 | vertex fit 52 4c fit 17
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 216 charged track selection: 75 | photon selection: 61  PID: 54 | vertex fit 54 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 218 charged track selection: 75 | photon selection: 61  PID: 54 | vertex fit 54 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 221 charged track selection: 77 | photon selection: 62  PID: 55 | vertex fit 55 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 222 charged track selection: 77 | photon selection: 62  PID: 55 | vertex fit 55 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 223 charged track selection: 77 | photon selection: 62  PID: 55 | vertex fit 55 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 226 charged track selection: 77 | photon selection: 62  PID: 55 | vertex fit 55 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 229 charged track selection: 77 | photon selection: 62  PID: 55 | vertex fit 55 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 233 charged track selection: 77 | photon selection: 62  PID: 55 | vertex fit 55 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 237 charged track selection: 79 | photon selection: 63  PID: 55 | vertex fit 55 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 241 charged track selection: 79 | photon selection: 63  PID: 55 | vertex fit 55 4c fit 17
+Processing 0th event...
+Event Level Cut flow: total events: 245 charged track selection: 79 | photon selection: 63  PID: 55 | vertex fit 55 4c fit 17
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 248 charged track selection: 81 | photon selection: 65  PID: 57 | vertex fit 56 4c fit 18
+Processing 0th event...
+Event Level Cut flow: total events: 251 charged track selection: 82 | photon selection: 66  PID: 58 | vertex fit 57 4c fit 18
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 255 charged track selection: 83 | photon selection: 67  PID: 59 | vertex fit 58 4c fit 18
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 259 charged track selection: 84 | photon selection: 68  PID: 60 | vertex fit 59 4c fit 18
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 262 charged track selection: 86 | photon selection: 69  PID: 61 | vertex fit 60 4c fit 18
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 266 charged track selection: 87 | photon selection: 70  PID: 62 | vertex fit 61 4c fit 19
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 267 charged track selection: 88 | photon selection: 71  PID: 63 | vertex fit 62 4c fit 20
+Processing 0th event...
+Event Level Cut flow: total events: 271 charged track selection: 90 | photon selection: 72  PID: 63 | vertex fit 62 4c fit 20
+Processing 0th event...
+Event Level Cut flow: total events: 274 charged track selection: 91 | photon selection: 73  PID: 63 | vertex fit 62 4c fit 20
+Processing 0th event...
+Event Level Cut flow: total events: 275 charged track selection: 91 | photon selection: 73  PID: 63 | vertex fit 62 4c fit 20
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 277 charged track selection: 92 | photon selection: 74  PID: 64 | vertex fit 63 4c fit 20
+Processing 0th event...
+Event Level Cut flow: total events: 282 charged track selection: 93 | photon selection: 74  PID: 64 | vertex fit 63 4c fit 20
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 284 charged track selection: 94 | photon selection: 75  PID: 65 | vertex fit 64 4c fit 21
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 288 charged track selection: 96 | photon selection: 76  PID: 66 | vertex fit 65 4c fit 21
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 291 charged track selection: 97 | photon selection: 77  PID: 67 | vertex fit 66 4c fit 22
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 294 charged track selection: 98 | photon selection: 78  PID: 68 | vertex fit 67 4c fit 23
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 298 charged track selection: 99 | photon selection: 79  PID: 69 | vertex fit 68 4c fit 24
+Processing 0th event...
+Event Level Cut flow: total events: 302 charged track selection: 99 | photon selection: 79  PID: 69 | vertex fit 68 4c fit 24
+Processing 0th event...
+Event Level Cut flow: total events: 304 charged track selection: 99 | photon selection: 79  PID: 69 | vertex fit 68 4c fit 24
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 307 charged track selection: 101 | photon selection: 81  PID: 70 | vertex fit 69 4c fit 24
+Processing 0th event...
+Event Level Cut flow: total events: 309 charged track selection: 101 | photon selection: 81  PID: 70 | vertex fit 69 4c fit 24
+Processing 0th event...
+Event Level Cut flow: total events: 310 charged track selection: 101 | photon selection: 81  PID: 70 | vertex fit 69 4c fit 24
+Processing 0th event...
+Event Level Cut flow: total events: 314 charged track selection: 101 | photon selection: 81  PID: 70 | vertex fit 69 4c fit 24
+Processing 0th event...
+Event Level Cut flow: total events: 315 charged track selection: 101 | photon selection: 81  PID: 70 | vertex fit 69 4c fit 24
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 318 charged track selection: 103 | photon selection: 83  PID: 72 | vertex fit 71 4c fit 25
+Processing 0th event...
+Event Level Cut flow: total events: 322 charged track selection: 103 | photon selection: 83  PID: 72 | vertex fit 71 4c fit 25
+Processing 0th event...
+Event Level Cut flow: total events: 324 charged track selection: 103 | photon selection: 83  PID: 72 | vertex fit 71 4c fit 25
+Processing 0th event...
+Event Level Cut flow: total events: 325 charged track selection: 103 | photon selection: 83  PID: 72 | vertex fit 71 4c fit 25
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 328 charged track selection: 105 | photon selection: 84  PID: 73 | vertex fit 72 4c fit 26
+Processing 0th event...
+Event Level Cut flow: total events: 329 charged track selection: 106 | photon selection: 85  PID: 74 | vertex fit 73 4c fit 26
+Processing 0th event...
+Event Level Cut flow: total events: 333 charged track selection: 106 | photon selection: 85  PID: 74 | vertex fit 73 4c fit 26
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 337 charged track selection: 109 | photon selection: 88  PID: 77 | vertex fit 76 4c fit 27
+Processing 0th event...
+Event Level Cut flow: total events: 341 charged track selection: 111 | photon selection: 90  PID: 78 | vertex fit 77 4c fit 27
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 345 charged track selection: 112 | photon selection: 91  PID: 79 | vertex fit 78 4c fit 28
+Processing 0th event...
+Event Level Cut flow: total events: 349 charged track selection: 112 | photon selection: 91  PID: 79 | vertex fit 78 4c fit 28
+Processing 0th event...
+Event Level Cut flow: total events: 351 charged track selection: 113 | photon selection: 92  PID: 80 | vertex fit 79 4c fit 28
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 353 charged track selection: 114 | photon selection: 93  PID: 81 | vertex fit 80 4c fit 29
+Processing 0th event...
+Event Level Cut flow: total events: 354 charged track selection: 114 | photon selection: 93  PID: 81 | vertex fit 80 4c fit 29
+Processing 0th event...
+Event Level Cut flow: total events: 355 charged track selection: 114 | photon selection: 93  PID: 81 | vertex fit 80 4c fit 29
+Processing 0th event...
+Event Level Cut flow: total events: 358 charged track selection: 115 | photon selection: 94  PID: 82 | vertex fit 81 4c fit 29
+Processing 0th event...
+Event Level Cut flow: total events: 360 charged track selection: 116 | photon selection: 95  PID: 82 | vertex fit 81 4c fit 29
+Processing 0th event...
+Event Level Cut flow: total events: 363 charged track selection: 117 | photon selection: 95  PID: 82 | vertex fit 81 4c fit 29
+Processing 0th event...
+Event Level Cut flow: total events: 366 charged track selection: 117 | photon selection: 95  PID: 82 | vertex fit 81 4c fit 29
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 369 charged track selection: 119 | photon selection: 97  PID: 84 | vertex fit 83 4c fit 30
+Processing 0th event...
+Event Level Cut flow: total events: 372 charged track selection: 120 | photon selection: 98  PID: 84 | vertex fit 83 4c fit 30
+Processing 0th event...
+Event Level Cut flow: total events: 373 charged track selection: 120 | photon selection: 98  PID: 84 | vertex fit 83 4c fit 30
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 376 charged track selection: 122 | photon selection: 100  PID: 86 | vertex fit 85 4c fit 31
+Processing 0th event...
+Event Level Cut flow: total events: 378 charged track selection: 123 | photon selection: 101  PID: 87 | vertex fit 86 4c fit 31
+Processing 0th event...
+Event Level Cut flow: total events: 379 charged track selection: 123 | photon selection: 101  PID: 87 | vertex fit 86 4c fit 31
+Processing 0th event...
+Event Level Cut flow: total events: 382 charged track selection: 123 | photon selection: 101  PID: 87 | vertex fit 86 4c fit 31
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 385 charged track selection: 124 | photon selection: 102  PID: 88 | vertex fit 87 4c fit 31
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 389 charged track selection: 126 | photon selection: 104  PID: 90 | vertex fit 89 4c fit 31
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 392 charged track selection: 128 | photon selection: 105  PID: 91 | vertex fit 90 4c fit 31
+Processing 0th event...
+Event Level Cut flow: total events: 396 charged track selection: 128 | photon selection: 105  PID: 91 | vertex fit 90 4c fit 31
+Processing 0th event...
+Event Level Cut flow: total events: 399 charged track selection: 130 | photon selection: 106  PID: 92 | vertex fit 91 4c fit 31
+Processing 0th event...
+Event Level Cut flow: total events: 401 charged track selection: 130 | photon selection: 106  PID: 92 | vertex fit 91 4c fit 31
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 404 charged track selection: 132 | photon selection: 108  PID: 94 | vertex fit 93 4c fit 33
+Processing 0th event...
+Event Level Cut flow: total events: 407 charged track selection: 134 | photon selection: 109  PID: 94 | vertex fit 93 4c fit 33
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 411 charged track selection: 135 | photon selection: 110  PID: 95 | vertex fit 94 4c fit 33
+Processing 0th event...
+Event Level Cut flow: total events: 414 charged track selection: 137 | photon selection: 111  PID: 96 | vertex fit 95 4c fit 33
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 416 charged track selection: 138 | photon selection: 112  PID: 97 | vertex fit 96 4c fit 34
+Processing 0th event...
+Event Level Cut flow: total events: 419 charged track selection: 138 | photon selection: 112  PID: 97 | vertex fit 96 4c fit 34
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 422 charged track selection: 139 | photon selection: 113  PID: 98 | vertex fit 97 4c fit 35
+Processing 0th event...
+Event Level Cut flow: total events: 423 charged track selection: 139 | photon selection: 113  PID: 98 | vertex fit 97 4c fit 35
+Processing 0th event...
+Event Level Cut flow: total events: 424 charged track selection: 139 | photon selection: 113  PID: 98 | vertex fit 97 4c fit 35
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 427 charged track selection: 141 | photon selection: 115  PID: 99 | vertex fit 98 4c fit 35
+Processing 0th event...
+Event Level Cut flow: total events: 430 charged track selection: 144 | photon selection: 117  PID: 101 | vertex fit 100 4c fit 35
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 432 charged track selection: 146 | photon selection: 118  PID: 102 | vertex fit 101 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 435 charged track selection: 146 | photon selection: 118  PID: 102 | vertex fit 101 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 438 charged track selection: 147 | photon selection: 118  PID: 102 | vertex fit 101 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 441 charged track selection: 148 | photon selection: 119  PID: 103 | vertex fit 102 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 444 charged track selection: 148 | photon selection: 119  PID: 103 | vertex fit 102 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 447 charged track selection: 149 | photon selection: 120  PID: 104 | vertex fit 103 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 451 charged track selection: 150 | photon selection: 121  PID: 105 | vertex fit 104 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 455 charged track selection: 150 | photon selection: 121  PID: 105 | vertex fit 104 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 457 charged track selection: 151 | photon selection: 122  PID: 105 | vertex fit 104 4c fit 36
+Processing 0th event...
+Event Level Cut flow: total events: 459 charged track selection: 151 | photon selection: 122  PID: 105 | vertex fit 104 4c fit 36
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 463 charged track selection: 152 | photon selection: 123  PID: 106 | vertex fit 105 4c fit 36
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 467 charged track selection: 155 | photon selection: 126  PID: 108 | vertex fit 107 4c fit 36
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 471 charged track selection: 157 | photon selection: 128  PID: 110 | vertex fit 109 4c fit 37
+Processing 0th event...
+Event Level Cut flow: total events: 474 charged track selection: 157 | photon selection: 128  PID: 110 | vertex fit 109 4c fit 37
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 476 charged track selection: 159 | photon selection: 130  PID: 112 | vertex fit 111 4c fit 38
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 479 charged track selection: 160 | photon selection: 131  PID: 113 | vertex fit 112 4c fit 38
+Processing 0th event...
+Event Level Cut flow: total events: 480 charged track selection: 161 | photon selection: 132  PID: 114 | vertex fit 113 4c fit 38
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 483 charged track selection: 162 | photon selection: 133  PID: 115 | vertex fit 114 4c fit 38
+Processing 0th event...
+Event Level Cut flow: total events: 484 charged track selection: 163 | photon selection: 134  PID: 116 | vertex fit 115 4c fit 38
+Processing 0th event...
+Event Level Cut flow: total events: 485 charged track selection: 163 | photon selection: 134  PID: 116 | vertex fit 115 4c fit 38
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 487 charged track selection: 164 | photon selection: 135  PID: 117 | vertex fit 116 4c fit 39
+Processing 0th event...
+Event Level Cut flow: total events: 488 charged track selection: 164 | photon selection: 135  PID: 117 | vertex fit 116 4c fit 39
+Processing 0th event...
+Event Level Cut flow: total events: 491 charged track selection: 164 | photon selection: 135  PID: 117 | vertex fit 116 4c fit 39
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 494 charged track selection: 165 | photon selection: 136  PID: 118 | vertex fit 117 4c fit 40
+Processing 0th event...
+Event Level Cut flow: total events: 495 charged track selection: 165 | photon selection: 136  PID: 118 | vertex fit 117 4c fit 40
+Processing 0th event...
+Event Level Cut flow: total events: 498 charged track selection: 167 | photon selection: 137  PID: 119 | vertex fit 118 4c fit 40
+Processing 0th event...
+Event Level Cut flow: total events: 501 charged track selection: 168 | photon selection: 137  PID: 119 | vertex fit 118 4c fit 40
+Processing 0th event...
+Event Level Cut flow: total events: 504 charged track selection: 168 | photon selection: 137  PID: 119 | vertex fit 118 4c fit 40
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 507 charged track selection: 169 | photon selection: 138  PID: 120 | vertex fit 119 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 508 charged track selection: 169 | photon selection: 138  PID: 120 | vertex fit 119 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 512 charged track selection: 171 | photon selection: 140  PID: 122 | vertex fit 121 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 515 charged track selection: 171 | photon selection: 140  PID: 122 | vertex fit 121 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 519 charged track selection: 171 | photon selection: 140  PID: 122 | vertex fit 121 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 522 charged track selection: 171 | photon selection: 140  PID: 122 | vertex fit 121 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 525 charged track selection: 172 | photon selection: 140  PID: 122 | vertex fit 121 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 528 charged track selection: 173 | photon selection: 141  PID: 123 | vertex fit 122 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 531 charged track selection: 173 | photon selection: 141  PID: 123 | vertex fit 122 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 534 charged track selection: 174 | photon selection: 142  PID: 123 | vertex fit 122 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 538 charged track selection: 175 | photon selection: 142  PID: 123 | vertex fit 122 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 541 charged track selection: 177 | photon selection: 143  PID: 124 | vertex fit 123 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 544 charged track selection: 179 | photon selection: 145  PID: 125 | vertex fit 124 4c fit 41
+Processing 0th event...
+Event Level Cut flow: total events: 547 charged track selection: 180 | photon selection: 145  PID: 125 | vertex fit 124 4c fit 41
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 550 charged track selection: 181 | photon selection: 146  PID: 126 | vertex fit 125 4c fit 42
+Processing 0th event...
+Event Level Cut flow: total events: 552 charged track selection: 183 | photon selection: 146  PID: 126 | vertex fit 125 4c fit 42
+Processing 0th event...
+Event Level Cut flow: total events: 554 charged track selection: 184 | photon selection: 147  PID: 126 | vertex fit 125 4c fit 42
+Processing 0th event...
+Event Level Cut flow: total events: 555 charged track selection: 184 | photon selection: 147  PID: 126 | vertex fit 125 4c fit 42
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 556 charged track selection: 185 | photon selection: 148  PID: 127 | vertex fit 126 4c fit 42
+Processing 0th event...
+Event Level Cut flow: total events: 558 charged track selection: 185 | photon selection: 148  PID: 127 | vertex fit 126 4c fit 42
+Processing 0th event...
+Event Level Cut flow: total events: 559 charged track selection: 185 | photon selection: 148  PID: 127 | vertex fit 126 4c fit 42
+Processing 0th event...
+Event Level Cut flow: total events: 560 charged track selection: 185 | photon selection: 148  PID: 127 | vertex fit 126 4c fit 42
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 563 charged track selection: 187 | photon selection: 149  PID: 128 | vertex fit 127 4c fit 43
+Processing 0th event...
+Event Level Cut flow: total events: 564 charged track selection: 187 | photon selection: 149  PID: 128 | vertex fit 127 4c fit 43
+Processing 0th event...
+Event Level Cut flow: total events: 565 charged track selection: 187 | photon selection: 149  PID: 128 | vertex fit 127 4c fit 43
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 568 charged track selection: 189 | photon selection: 151  PID: 129 | vertex fit 128 4c fit 44
+Processing 0th event...
+Event Level Cut flow: total events: 570 charged track selection: 189 | photon selection: 151  PID: 129 | vertex fit 128 4c fit 44
+Processing 0th event...
+Event Level Cut flow: total events: 571 charged track selection: 189 | photon selection: 151  PID: 129 | vertex fit 128 4c fit 44
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 574 charged track selection: 190 | photon selection: 152  PID: 130 | vertex fit 129 4c fit 44
+Processing 0th event...
+Event Level Cut flow: total events: 578 charged track selection: 191 | photon selection: 153  PID: 130 | vertex fit 129 4c fit 44
+Processing 0th event...
+Event Level Cut flow: total events: 579 charged track selection: 192 | photon selection: 153  PID: 130 | vertex fit 129 4c fit 44
+Processing 0th event...
+Event Level Cut flow: total events: 580 charged track selection: 193 | photon selection: 153  PID: 130 | vertex fit 129 4c fit 44
+Processing 0th event...
+Event Level Cut flow: total events: 584 charged track selection: 195 | photon selection: 153  PID: 130 | vertex fit 129 4c fit 44
+Processing 0th event...
+Event Level Cut flow: total events: 589 charged track selection: 195 | photon selection: 153  PID: 130 | vertex fit 129 4c fit 44
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 590 charged track selection: 196 | photon selection: 154  PID: 131 | vertex fit 130 4c fit 44
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 594 charged track selection: 198 | photon selection: 156  PID: 133 | vertex fit 132 4c fit 45
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 598 charged track selection: 199 | photon selection: 157  PID: 134 | vertex fit 133 4c fit 45
+Processing 0th event...
+Event Level Cut flow: total events: 601 charged track selection: 199 | photon selection: 157  PID: 134 | vertex fit 133 4c fit 45
+Processing 0th event...
+Event Level Cut flow: total events: 602 charged track selection: 199 | photon selection: 157  PID: 134 | vertex fit 133 4c fit 45
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 605 charged track selection: 200 | photon selection: 158  PID: 135 | vertex fit 134 4c fit 46
+Processing 0th event...
+Event Level Cut flow: total events: 609 charged track selection: 201 | photon selection: 158  PID: 135 | vertex fit 134 4c fit 46
+Processing 0th event...
+Event Level Cut flow: total events: 612 charged track selection: 202 | photon selection: 159  PID: 135 | vertex fit 134 4c fit 46
+Processing 0th event...
+Event Level Cut flow: total events: 614 charged track selection: 202 | photon selection: 159  PID: 135 | vertex fit 134 4c fit 46
+Processing 0th event...
+Event Level Cut flow: total events: 616 charged track selection: 203 | photon selection: 159  PID: 135 | vertex fit 134 4c fit 46
+Processing 0th event...
+Event Level Cut flow: total events: 617 charged track selection: 203 | photon selection: 159  PID: 135 | vertex fit 134 4c fit 46
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 620 charged track selection: 204 | photon selection: 160  PID: 136 | vertex fit 135 4c fit 46
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 623 charged track selection: 206 | photon selection: 162  PID: 138 | vertex fit 137 4c fit 46
+Processing 0th event...
+Event Level Cut flow: total events: 628 charged track selection: 209 | photon selection: 163  PID: 138 | vertex fit 137 4c fit 46
+Processing 0th event...
+Event Level Cut flow: total events: 631 charged track selection: 210 | photon selection: 163  PID: 138 | vertex fit 137 4c fit 46
+Processing 0th event...
+Event Level Cut flow: total events: 634 charged track selection: 210 | photon selection: 163  PID: 138 | vertex fit 137 4c fit 46
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 637 charged track selection: 211 | photon selection: 164  PID: 139 | vertex fit 138 4c fit 47
+Processing 0th event...
+Event Level Cut flow: total events: 638 charged track selection: 211 | photon selection: 164  PID: 139 | vertex fit 138 4c fit 47
+Processing 0th event...
+Event Level Cut flow: total events: 639 charged track selection: 212 | photon selection: 164  PID: 139 | vertex fit 138 4c fit 47
+Processing 0th event...
+Event Level Cut flow: total events: 640 charged track selection: 212 | photon selection: 164  PID: 139 | vertex fit 138 4c fit 47
+Processing 0th event...
+Event Level Cut flow: total events: 644 charged track selection: 215 | photon selection: 165  PID: 140 | vertex fit 139 4c fit 47
+Processing 0th event...
+Event Level Cut flow: total events: 647 charged track selection: 215 | photon selection: 165  PID: 140 | vertex fit 139 4c fit 47
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 650 charged track selection: 216 | photon selection: 166  PID: 141 | vertex fit 140 4c fit 48
+Processing 0th event...
+Event Level Cut flow: total events: 653 charged track selection: 217 | photon selection: 167  PID: 141 | vertex fit 140 4c fit 48
+Processing 0th event...
+Event Level Cut flow: total events: 654 charged track selection: 217 | photon selection: 167  PID: 141 | vertex fit 140 4c fit 48
+Processing 0th event...
+Event Level Cut flow: total events: 657 charged track selection: 217 | photon selection: 167  PID: 141 | vertex fit 140 4c fit 48
+Processing 0th event...
+Event Level Cut flow: total events: 659 charged track selection: 217 | photon selection: 167  PID: 141 | vertex fit 140 4c fit 48
+Processing 0th event...
+Event Level Cut flow: total events: 660 charged track selection: 217 | photon selection: 167  PID: 141 | vertex fit 140 4c fit 48
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 661 charged track selection: 218 | photon selection: 168  PID: 142 | vertex fit 141 4c fit 48
+Processing 0th event...
+Event Level Cut flow: total events: 666 charged track selection: 220 | photon selection: 170  PID: 142 | vertex fit 141 4c fit 48
+Processing 0th event...
+Event Level Cut flow: total events: 670 charged track selection: 220 | photon selection: 170  PID: 142 | vertex fit 141 4c fit 48
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 675 charged track selection: 224 | photon selection: 174  PID: 145 | vertex fit 144 4c fit 48
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 679 charged track selection: 226 | photon selection: 175  PID: 146 | vertex fit 145 4c fit 48
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 683 charged track selection: 230 | photon selection: 177  PID: 147 | vertex fit 146 4c fit 49
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 687 charged track selection: 232 | photon selection: 179  PID: 149 | vertex fit 148 4c fit 49
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 689 charged track selection: 234 | photon selection: 181  PID: 150 | vertex fit 149 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 690 charged track selection: 235 | photon selection: 182  PID: 150 | vertex fit 149 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 692 charged track selection: 236 | photon selection: 183  PID: 151 | vertex fit 150 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 696 charged track selection: 236 | photon selection: 183  PID: 151 | vertex fit 150 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 700 charged track selection: 237 | photon selection: 183  PID: 151 | vertex fit 150 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 702 charged track selection: 238 | photon selection: 183  PID: 151 | vertex fit 150 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 704 charged track selection: 238 | photon selection: 183  PID: 151 | vertex fit 150 4c fit 50
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 707 charged track selection: 240 | photon selection: 184  PID: 152 | vertex fit 151 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 711 charged track selection: 241 | photon selection: 185  PID: 153 | vertex fit 152 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 713 charged track selection: 241 | photon selection: 185  PID: 153 | vertex fit 152 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 714 charged track selection: 242 | photon selection: 186  PID: 154 | vertex fit 153 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 715 charged track selection: 242 | photon selection: 186  PID: 154 | vertex fit 153 4c fit 50
+Processing 0th event...
+Event Level Cut flow: total events: 717 charged track selection: 242 | photon selection: 186  PID: 154 | vertex fit 153 4c fit 50
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 718 charged track selection: 243 | photon selection: 187  PID: 155 | vertex fit 154 4c fit 50
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 721 charged track selection: 245 | photon selection: 189  PID: 157 | vertex fit 156 4c fit 51
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 726 charged track selection: 248 | photon selection: 192  PID: 160 | vertex fit 159 4c fit 54
+Processing 0th event...
+Event Level Cut flow: total events: 732 charged track selection: 250 | photon selection: 193  PID: 160 | vertex fit 159 4c fit 54
+Processing 0th event...
+Event Level Cut flow: total events: 737 charged track selection: 251 | photon selection: 194  PID: 161 | vertex fit 160 4c fit 54
+Processing 0th event...
+Event Level Cut flow: total events: 742 charged track selection: 251 | photon selection: 194  PID: 161 | vertex fit 160 4c fit 54
+Processing 0th event...
+Event Level Cut flow: total events: 745 charged track selection: 253 | photon selection: 195  PID: 162 | vertex fit 161 4c fit 54
+Processing 0th event...
+Event Level Cut flow: total events: 746 charged track selection: 253 | photon selection: 195  PID: 162 | vertex fit 161 4c fit 54
+Processing 0th event...
+Event Level Cut flow: total events: 749 charged track selection: 254 | photon selection: 195  PID: 162 | vertex fit 161 4c fit 54
+Processing 0th event...
+Event Level Cut flow: total events: 750 charged track selection: 254 | photon selection: 195  PID: 162 | vertex fit 161 4c fit 54
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 754 charged track selection: 255 | photon selection: 196  PID: 163 | vertex fit 162 4c fit 54
+Processing 0th event...
+Event Level Cut flow: total events: 759 charged track selection: 255 | photon selection: 196  PID: 163 | vertex fit 162 4c fit 54
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 763 charged track selection: 257 | photon selection: 197  PID: 164 | vertex fit 163 4c fit 55
+Processing 0th event...
+Event Level Cut flow: total events: 764 charged track selection: 257 | photon selection: 197  PID: 164 | vertex fit 163 4c fit 55
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 770 charged track selection: 258 | photon selection: 198  PID: 165 | vertex fit 164 4c fit 56
+Processing 0th event...
+Event Level Cut flow: total events: 774 charged track selection: 259 | photon selection: 199  PID: 165 | vertex fit 164 4c fit 56
+Processing 0th event...
+Event Level Cut flow: total events: 775 charged track selection: 259 | photon selection: 199  PID: 165 | vertex fit 164 4c fit 56
+Processing 0th event...
+Event Level Cut flow: total events: 777 charged track selection: 260 | photon selection: 200  PID: 166 | vertex fit 165 4c fit 56
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 779 charged track selection: 261 | photon selection: 201  PID: 167 | vertex fit 166 4c fit 56
+Processing 0th event...
+Event Level Cut flow: total events: 781 charged track selection: 261 | photon selection: 201  PID: 167 | vertex fit 166 4c fit 56
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 783 charged track selection: 262 | photon selection: 202  PID: 168 | vertex fit 167 4c fit 57
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 787 charged track selection: 264 | photon selection: 203  PID: 169 | vertex fit 168 4c fit 58
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 791 charged track selection: 266 | photon selection: 205  PID: 171 | vertex fit 170 4c fit 59
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 795 charged track selection: 269 | photon selection: 207  PID: 173 | vertex fit 172 4c fit 61
+Processing 0th event...
+Event Level Cut flow: total events: 798 charged track selection: 269 | photon selection: 207  PID: 173 | vertex fit 172 4c fit 61
+Processing 0th event...
+Event Level Cut flow: total events: 803 charged track selection: 271 | photon selection: 209  PID: 174 | vertex fit 173 4c fit 61
+Processing 0th event...
+Event Level Cut flow: total events: 808 charged track selection: 272 | photon selection: 210  PID: 174 | vertex fit 173 4c fit 61
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 813 charged track selection: 275 | photon selection: 212  PID: 175 | vertex fit 174 4c fit 61
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 818 charged track selection: 276 | photon selection: 213  PID: 176 | vertex fit 175 4c fit 62
+Processing 0th event...
+Event Level Cut flow: total events: 823 charged track selection: 277 | photon selection: 214  PID: 177 | vertex fit 176 4c fit 62
+Processing 0th event...
+Event Level Cut flow: total events: 828 charged track selection: 278 | photon selection: 215  PID: 177 | vertex fit 176 4c fit 62
+Processing 0th event...
+Event Level Cut flow: total events: 832 charged track selection: 278 | photon selection: 215  PID: 177 | vertex fit 176 4c fit 62
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 836 charged track selection: 280 | photon selection: 217  PID: 179 | vertex fit 178 4c fit 63
+Processing 0th event...
+Event Level Cut flow: total events: 841 charged track selection: 281 | photon selection: 217  PID: 179 | vertex fit 178 4c fit 63
+Processing 0th event...
+Event Level Cut flow: total events: 845 charged track selection: 281 | photon selection: 217  PID: 179 | vertex fit 178 4c fit 63
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 850 charged track selection: 282 | photon selection: 218  PID: 180 | vertex fit 179 4c fit 63
+Processing 0th event...
+Event Level Cut flow: total events: 855 charged track selection: 285 | photon selection: 219  PID: 180 | vertex fit 179 4c fit 63
+Processing 0th event...
+Event Level Cut flow: total events: 860 charged track selection: 285 | photon selection: 219  PID: 180 | vertex fit 179 4c fit 63
+Processing 0th event...
+Event Level Cut flow: total events: 866 charged track selection: 286 | photon selection: 220  PID: 181 | vertex fit 180 4c fit 63
+Processing 0th event...
+Event Level Cut flow: total events: 870 charged track selection: 288 | photon selection: 221  PID: 181 | vertex fit 180 4c fit 63
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 875 charged track selection: 292 | photon selection: 224  PID: 183 | vertex fit 182 4c fit 64
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 878 charged track selection: 294 | photon selection: 225  PID: 184 | vertex fit 183 4c fit 64
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 881 charged track selection: 295 | photon selection: 226  PID: 185 | vertex fit 184 4c fit 65
+Processing 0th event...
+Event Level Cut flow: total events: 883 charged track selection: 296 | photon selection: 227  PID: 186 | vertex fit 185 4c fit 65
+Processing 0th event...
+Event Level Cut flow: total events: 885 charged track selection: 296 | photon selection: 227  PID: 186 | vertex fit 185 4c fit 65
+Processing 0th event...
+Event Level Cut flow: total events: 888 charged track selection: 297 | photon selection: 227  PID: 186 | vertex fit 185 4c fit 65
+Processing 0th event...
+Event Level Cut flow: total events: 890 charged track selection: 299 | photon selection: 228  PID: 187 | vertex fit 186 4c fit 65
+Processing 0th event...
+Event Level Cut flow: total events: 891 charged track selection: 299 | photon selection: 228  PID: 187 | vertex fit 186 4c fit 65
+Processing 0th event...
+Event Level Cut flow: total events: 892 charged track selection: 300 | photon selection: 229  PID: 188 | vertex fit 187 4c fit 65
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 897 charged track selection: 303 | photon selection: 231  PID: 190 | vertex fit 189 4c fit 66
+Processing 0th event...
+Event Level Cut flow: total events: 900 charged track selection: 303 | photon selection: 231  PID: 190 | vertex fit 189 4c fit 66
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 905 charged track selection: 305 | photon selection: 232  PID: 191 | vertex fit 190 4c fit 67
+Processing 0th event...
+Event Level Cut flow: total events: 910 charged track selection: 305 | photon selection: 232  PID: 191 | vertex fit 190 4c fit 67
+Processing 0th event...
+Event Level Cut flow: total events: 911 charged track selection: 305 | photon selection: 232  PID: 191 | vertex fit 190 4c fit 67
+Processing 0th event...
+Event Level Cut flow: total events: 912 charged track selection: 305 | photon selection: 232  PID: 191 | vertex fit 190 4c fit 67
+Processing 0th event...
+Event Level Cut flow: total events: 914 charged track selection: 305 | photon selection: 232  PID: 191 | vertex fit 190 4c fit 67
+Processing 0th event...
+Event Level Cut flow: total events: 919 charged track selection: 305 | photon selection: 232  PID: 191 | vertex fit 190 4c fit 67
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 924 charged track selection: 308 | photon selection: 234  PID: 193 | vertex fit 192 4c fit 68
+Processing 0th event...
+Event Level Cut flow: total events: 928 charged track selection: 308 | photon selection: 234  PID: 193 | vertex fit 192 4c fit 68
+Processing 0th event...
+Event Level Cut flow: total events: 929 charged track selection: 309 | photon selection: 235  PID: 194 | vertex fit 193 4c fit 68
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 932 charged track selection: 310 | photon selection: 236  PID: 195 | vertex fit 194 4c fit 68
+Processing 0th event...
+Event Level Cut flow: total events: 935 charged track selection: 310 | photon selection: 236  PID: 195 | vertex fit 194 4c fit 68
+Processing 0th event...
+Event Level Cut flow: total events: 936 charged track selection: 311 | photon selection: 237  PID: 196 | vertex fit 195 4c fit 68
+Processing 0th event...
+Event Level Cut flow: total events: 940 charged track selection: 311 | photon selection: 237  PID: 196 | vertex fit 195 4c fit 68
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 944 charged track selection: 312 | photon selection: 238  PID: 197 | vertex fit 196 4c fit 68
+Processing 0th event...
+Event Level Cut flow: total events: 947 charged track selection: 313 | photon selection: 238  PID: 197 | vertex fit 196 4c fit 68
+Processing 0th event...
+Event Level Cut flow: total events: 951 charged track selection: 314 | photon selection: 238  PID: 197 | vertex fit 196 4c fit 68
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 953 charged track selection: 315 | photon selection: 239  PID: 198 | vertex fit 197 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 955 charged track selection: 316 | photon selection: 240  PID: 198 | vertex fit 197 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 958 charged track selection: 318 | photon selection: 241  PID: 198 | vertex fit 197 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 960 charged track selection: 318 | photon selection: 241  PID: 198 | vertex fit 197 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 962 charged track selection: 319 | photon selection: 241  PID: 198 | vertex fit 197 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 963 charged track selection: 319 | photon selection: 241  PID: 198 | vertex fit 197 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 964 charged track selection: 319 | photon selection: 241  PID: 198 | vertex fit 197 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 966 charged track selection: 320 | photon selection: 242  PID: 199 | vertex fit 198 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 967 charged track selection: 320 | photon selection: 242  PID: 199 | vertex fit 198 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 968 charged track selection: 320 | photon selection: 242  PID: 199 | vertex fit 198 4c fit 69
+Processing 0th event...
+Event Level Cut flow: total events: 969 charged track selection: 320 | photon selection: 242  PID: 199 | vertex fit 198 4c fit 69
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 972 charged track selection: 321 | photon selection: 243  PID: 200 | vertex fit 199 4c fit 70
+Processing 0th event...
+Event Level Cut flow: total events: 975 charged track selection: 321 | photon selection: 243  PID: 200 | vertex fit 199 4c fit 70
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 978 charged track selection: 322 | photon selection: 244  PID: 201 | vertex fit 200 4c fit 70
+Processing 0th event...
+Event Level Cut flow: total events: 981 charged track selection: 323 | photon selection: 245  PID: 202 | vertex fit 201 4c fit 70
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 984 charged track selection: 325 | photon selection: 247  PID: 204 | vertex fit 203 4c fit 71
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 988 charged track selection: 327 | photon selection: 249  PID: 206 | vertex fit 205 4c fit 72
+Processing 0th event...
+Event Level Cut flow: total events: 989 charged track selection: 327 | photon selection: 249  PID: 206 | vertex fit 205 4c fit 72
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 991 charged track selection: 329 | photon selection: 251  PID: 207 | vertex fit 206 4c fit 73
+TrackPool: wrong track index 4 , 1
+TrackPool: wrong track index 5 , 2
+TrackPool: wrong track index 6 , 3
+TrackPool: wrong track index 0 , 4
+TrackPool: wrong track index 1 , 5
+TrackPool: wrong track index 2 , 6
+TrackPool: wrong track index 3 , 7
+Processing 0th event...
+Event Level Cut flow: total events: 994 charged track selection: 330 | photon selection: 252  PID: 208 | vertex fit 207 4c fit 74
+Processing 0th event...
+Event Level Cut flow: total events: 996 charged track selection: 330 | photon selection: 252  PID: 208 | vertex fit 207 4c fit 74
+Processing 0th event...
+Event Level Cut flow: total events: 998 charged track selection: 330 | photon selection: 252  PID: 208 | vertex fit 207 4c fit 74
+ApplicationMgr       INFO Application Manager Stopped successfully
+In finalize()...
+Total Event Number: 1000
+After charged track cut: 330
+After photon cut: 252
+After PID: 208
+After Vertex Fit:207
+After Kinematic Fit:74
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+199.473u 4.074s 3:27.02 98.3%	0+0k 280+528io 13pf+0w

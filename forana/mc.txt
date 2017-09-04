@@ -1,0 +1,22 @@
+J/psi->rho0 pi0:      716
+J/psi->rho0 pi0:      716
+J/psi->rho0 pi0:      683
+J/psi->rho0 pi0:      732
+J/psi->rho0 pi0:      690
+J/psi->rho0 pi0:      702
+J/psi->rho0 pi0:      759
+J/psi->rho0 pi0:      730
+J/psi->rho0 pi0:      727
+J/psi->rho0 pi0:      743
+J/psi->rho0 pi0:      743
+J/psi->rho0 pi0:      721
+J/psi->rho0 pi0:      732
+J/psi->rho0 pi0:      681
+J/psi->rho0 pi0:      711
+J/psi->rho0 pi0:      719
+J/psi->rho0 pi0:      733
+J/psi->rho0 pi0:      748
+J/psi->rho0 pi0:      698
+J/psi->rho0 pi0:      706
+J/psi->rho0 pi0:      677
+
